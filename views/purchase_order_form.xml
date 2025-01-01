@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <!-- Target the product_uom field in the order_line tree -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom'][last()]" position="attributes">
-                <attribute name="domain">[('secondary_product_ids', 'in', product_id)]</attribute>
+                <attribute name="domain">[('category_id','=',product_uom_category_id), '|', ('secondary_product_ids','=',False), ('secondary_product_ids','in',product_id)]</attribute>
             </xpath>
         </field>
     </record>
